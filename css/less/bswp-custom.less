@@ -1,0 +1,525 @@
+/**************
+>>>>>>>LEMBRETE
+O layout é mantido em 960px porque o arquivo "responsive-1200px-min.less"
+está comentado em "bootstrapwp.less" (Linha 89).
+Os icones do FontAwesome também foram adicionados nesse arquivo (Linha 41).
+Alterado Breadcrumb para páginas. Linha 553 no functions.php
+>>>>>>>LEMBRETE
+*****************/
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600,200);
+
+body{
+	font-family: 'Titillium Web', sans-serif;
+}
+
+//Colors
+// ---------------------
+@eb-red:#841911;
+@eb-green-light:lighten(@eb-green, 20%);
+@eb-green-dark:darken(@eb-green, 20%);
+@eb-green:rgb(160, 180,84);
+
+// Links
+// -------------------------
+@linkColor:             rgb(160, 180,84);
+@linkColorHover:        darken(@linkColor, 15%);
+
+/************************
+/*Navbar Customization */
+/************************/
+@navbarHeight:					  40px;
+@navbarText:                      #777;
+@navbarLinkColor:                 #777;
+@navbarLinkColorHover:            #fff;
+@navbarLinkColorActive:           @gray;
+@navbarLinkBackgroundHover:       @eb-green;
+@navbarLinkBackgroundActive:      darken(#000, 5%);
+@navbarBrandColor: @eb-red;
+
+.navbar-static-top{
+	margin-bottom:20px;
+}
+
+.home .navbar-static-top{
+	margin-bottom:0px;
+}
+
+.navbar-inner {
+	border-bottom: none;
+	font-size: 1.0em;
+	font-weight: 400;
+	text-transform: uppercase;
+	.box-shadow(0 1px 4px rgba(0,0,0,0.5));
+}
+
+.navbar .nav > li > a{
+		text-shadow:none;
+}
+
+.navbar .brand{
+	letter-spacing: -1px;
+	font-weight: 200;
+}
+
+
+/************
+/*Home Hero */
+/************/
+.home-hero {
+	margin-left: 0px;
+	margin-right: 0px;
+	z-index: -9999;
+	//margin-top: -40px; 	/*usar caso a navbar seja transparente*/
+	min-height: 250px;
+	position: relative;
+	padding: 20px 0; 		/*alterar caso a navbar seja transparente*/
+	color: #841911;
+	text-align: left;
+	//margin-bottom: 10px;
+	//background: #000;/*#cedf8f; /* Old browsers */
+	background-image: url('../img/back.jpg');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center ;
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15), inset 0 -3px 7px rgba(0,0,0,.15);
+		-moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15), inset 0 -3px 7px rgba(0,0,0,.15);
+		box-shadow: inset 0 -1px 0 rgba(0,0,0,.15), inset 0 -3px 7px rgba(0,0,0,.15);
+
+}
+
+.home-hero h1 {
+	margin-top: 65px;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 30px;
+}
+.home-hero span{
+	background-color: rgba(206,223,143, 0.7);
+	padding: 0 5px;
+}
+.home-hero .container {
+	position: relative;
+	z-index: 2;
+}
+.home-hero:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: url(../img/bs-docs-masthead-pattern.png) repeat center center;
+	opacity: .4;
+}
+
+/* Link styles (used on .masthead-links as well) */
+.home-hero a {
+	color: #fff;
+	color: rgba(255,255,255,.5);
+	-webkit-transition: all .2s ease-in-out;
+		 -moz-transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;
+}
+.home-hero a:hover {
+	color: #fff;
+	text-shadow: 0 0 10px rgba(255,255,255,.25);
+}
+
+
+
+/************************/
+/**     Introdução*******/
+/************************/
+.introducao{
+	background-color: #f0f0f0;
+	padding: 5px;
+	margin-top: 15px;
+	margin-left: 15px;
+}
+.introducao h1{
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 25px;
+	text-align: center;
+}
+.triangle-bottom {
+	width: 0;
+	height: 0;
+	border-bottom: 45px solid #f0f0f0;
+	border-left: 15px solid transparent;
+	position: absolute;
+	margin-top: 58px;
+	margin-left: 0px;
+		display: none;
+
+}
+.triangle-top {
+	width: 0;
+	height: 0;
+	border-top: 45px solid #f0f0f0;
+	border-left: 15px solid transparent;
+	position: absolute;
+	margin-top: 15px;
+	margin-left: 0px;
+}
+
+
+/************************/
+/**Home-Quick Links******/
+/************************/
+.quick-links {
+	text-align: center;
+	color: #5a5a5a;
+	margin-bottom: 25px;
+}
+
+.quick-links hr{
+	margin: 15px 0px;
+}
+
+.quick-links h2 {
+	text-align: left;
+	font-size: 1em;
+	line-height: 30px;
+	margin: 0 0 5px;
+	color: #555;
+	text-transform: uppercase;
+	border-bottom: 1px solid #eee;
+}
+
+.quick-links .row-fluid h2 {
+	text-align: center;
+	font-weight: normal;
+	margin: 0 0 0;
+	border:none;
+	color: #000;
+}
+
+.quick-links .widget_text{
+	margin:0;
+	padding: 0;
+	color: #555;
+}
+.quick-links .row-fluid .span3{
+	padding: 10px 10px 10px 10px;
+}
+
+/*Hover effects*/
+.quick-links .row-fluid .span3{
+   .transition(all .2s ease)
+}
+.quick-links .icon-3x {
+	padding:  10px;
+	font-size: 3em;
+	margin-bottom: 2px;
+	&.icon-border {
+		border-color: @linkColor;
+		border-width: 3px;
+		.border-radius(100%);
+	}
+}
+
+.span3:hover .icon-border{
+	border-color:@linkColorHover;
+}
+
+
+/*****************************/
+/****Home-Visitas*************/
+/*****************************/
+.home .visitas {
+	width:100%;
+	margin-top: 25px;
+	padding: 25px 0 30px 0;
+	background-image: url('../img/stripe.png');
+	border-top: 1px solid #eee;
+}
+
+.visitas{
+	width:100%;
+	padding: 25px 0 30px 0;
+}
+
+.quick-links hr{
+	margin: 15px 0px;
+}
+
+.visitas h2 {
+	text-align: left;
+	font-size: 1em;
+	line-height: 30px;
+	font-weight: normal;
+	margin: 0 0 20px;
+	color: #555;
+	text-transform: uppercase;
+	border-bottom: 1px solid #eee;
+}
+.visitas .thumbnail{
+	position: relative;
+	background-color: #fff;
+	.box-shadow(none);
+	padding:0px;
+	border: 1px solid #fff;
+}
+
+.visitas .thumbnail img{
+	.border-radius(4px);
+}
+
+.visitas .thumbnail{
+	text-align: center;
+}
+
+.visitas-more{
+	width:268px;
+}
+
+/***********************/
+/***** HOVER EFFECTS ***/
+/***********************/
+.mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+   	.border-radius(3px);
+}
+
+.mask h2 {
+	border: none;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    margin: 20px 0px 10px 0px;
+}
+
+.mask p {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 0px;
+    text-align: center
+}
+
+.mask a {
+    display: inline-block;
+    color: #fff;
+}
+
+.visitas .thumbnail .mask {
+    .opacity(0);
+    background-color: rgb(160, 180,84); 
+    background-color: rgba(160, 180,84, 0.5);
+    .transition(all .4s ease-in-out)
+}
+.visitas .thumbnail h2 {
+	.translate(0, -100px);
+    .opacity(0);
+    .transition(all .2s ease-in-out)
+}
+.visitas .thumbnail .p-hover { 
+	.translate(0, 100px);
+    .opacity(0);
+    .transition(all .2s linear);
+}
+.visitas .thumbnail a.info{
+    .opacity(0);
+    .transition(all .2s ease-in-out);
+}
+.visitas .thumbnail:hover .mask { 
+    .opacity(100);
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	    filter: alpha(opacity=70);
+}
+.visitas .thumbnail:hover h2,
+.visitas .thumbnail:hover .p-hover,
+.visitas .thumbnail:hover a.info {
+    .opacity(100);
+    .translate3d(0, 0, 0);
+}
+.visitas .thumbnail:hover .p-hover {
+    .transition-delay(0.1s);
+}
+.visitas .thumbnail:hover a.info {
+    .transition-delay(0.2s);
+}
+
+.caption p{
+	text-align: justify;
+}
+
+/************************************/
+/** Pagina Atividas  ****************/
+/************************************/
+.atividades .caption h2{
+	margin-top: -5px;
+}
+
+.atividades h1{
+	margin-top: -5px;
+	border-bottom: 1px solid #eee;
+	color: #5a5a5a;
+	text-transform: uppercase;
+}
+
+/*Caption na direita e imagem na esquerda em span12*/
+.right-caption > img {
+    float: left;
+    margin-right: 15px;
+}
+
+.right-caption {
+    float: left;
+}
+
+.right-caption > .caption {
+    padding: 4px;
+}
+
+
+/***********************************/
+/** Fix Contact Form ****************/
+/************************************/
+.wpcf7-text{
+	width:70%;
+}
+
+.wpcf7-textarea{
+	width: 70%;
+}
+
+/***********************************/
+/***** FOOTER **********************/
+/***********************************/
+footer{
+	background-color: #fff;
+	background-image: url('../img/footer.jpg');
+	background-position: center top;
+	padding-top: 125px;
+	background-repeat: no-repeat;
+	background-color: lighten(@eb-green, 20%);
+	padding-bottom: 10px;
+	color: #fff;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.home footer{
+	background-image: url('../img/footer-home.jpg');
+}
+
+footer h4{
+	font-size:14px;
+	margin: 5px 0;
+}
+footer hr{
+	border-bottom: none;
+	margin: 5px 0;
+}
+footer p{
+	margin: 0;
+}
+footer #searchsubmit{
+	display: none;
+}
+footer .widget{
+	margin-bottom: 10px;
+}
+footer a{
+	color: #fff;
+}
+footer a:hover{
+	color: #fff;
+}
+/***********************************/
+/****Media Query for desktop Tweak**/
+/***********************************/
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) {
+	.quick-links .row-fluid .span3{
+		margin-left: 0;
+		width: 25%;
+		border-right: 1px dashed #DDD;
+	}
+	.quick-links .row-fluid .last-link{
+		border: none;
+	}
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	.home-hero{
+		margin-left: -20px;
+		margin-right: -20px;
+		padding: 40px 20px 10px 20px;
+		font-size: 14px;
+	}
+	.home-hero h1 {
+		font-size: 1.0em;
+		font-weight: 200;
+		line-height: 25px;
+		text-align: center;
+	}
+	.quick-links .row-fluid .span3{
+		border-bottom: 1px dashed #ddd;
+		margin-top: 10px;
+	}
+	.quick-links .row-fluid .last-link{
+		border-bottom: none;
+	}
+	.quick-links a{
+		text-decoration: none;
+	}
+	.home .visitas{
+		margin: 0px -20px;
+		padding: 25px 20px 30px 20px;
+	}
+	.home footer, footer{
+		background-image: none;
+		margin: 0 -20px;
+		padding: 10px 20px;
+	}
+}
+
+
+/*****************************/
+/***Sombra Menu Decrapeted****/
+/*****************************/
+.rev-shadow-top {
+	position: absolute;
+	background-image: url(../img/shadow.png);
+	background-repeat: no-repeat;
+	background-position: top center;
+	height: 42px;
+	width: 100%;
+	top: 39px;
+	z-index: 100;
+}
+
+/***************************
+/*Carousel Customizantion */
+/**************************/
+#myCarousel{
+	margin-bottom: 0;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+}
+#myCarousel img{
+	width:100%;
+}
+#myCarousel .carousel-inner{
+	height: 300px;
+}
+
+
+
+
